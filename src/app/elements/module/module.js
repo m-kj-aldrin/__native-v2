@@ -84,7 +84,11 @@ export class com_module extends base_element {
                 );
         } else {
             let a = this.shadowRoot.getElementById("operator").getAnimations();
-            a[0].reverse();
+            if (a[0]) {
+                a[0].reverse();
+            } else {
+                console.log("min ani missing ???");
+            }
         }
     }
 
