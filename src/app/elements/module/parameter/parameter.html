@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="style/reset.css" />
+
+<style>
+    :host(:active) {
+        color: var(--color-primary);
+        transition: color 100ms ease;
+    }
+    input[type="text"] {
+        max-width: 6ch;
+    }
+    #parameter {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-0);
+    }
+</style>
+
+<div id="parameter">
+    <div id="label"></div>
+    <slot></slot>
+</div>

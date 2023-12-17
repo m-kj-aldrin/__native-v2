@@ -1,0 +1,33 @@
+@import "./reset.css";
+@import "./props.css";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+    padding: 4px;
+
+    display: grid;
+
+    color: var(--color-black);
+    background-color: var(--color-white);
+
+    font-size: 10px;
+    font-weight: 100;
+    line-height: 1;
+}
+
+[data-dragged="true"] {
+    border-color: var(--color-primary-light);
+}
+[data-dragged="true"]::part(header) {
+    background-color: var(--color-primary-light);
+}

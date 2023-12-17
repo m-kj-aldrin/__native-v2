@@ -1,0 +1,16 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #chains {
+        --gap: var(--space-1);
+        flex-grow: 1;
+        align-items: start;
+    }
+</style>
+
+<div id="chains" class="stack-row">
+    <slot></slot>
+</div>

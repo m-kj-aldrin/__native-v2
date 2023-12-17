@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="style/reset.css" />
+
+<style>
+    input {
+        max-width: 5ch;
+    }
+
+    .row {
+        justify-content: center;
+    }
+</style>
+
+<div id="parameters">
+    <div class="row stack-row">
+        <com-parameter label="frequency" index="0" norm-value="0.75">
+            <input-range width="64"></input-range>
+        </com-parameter>
+        <com-parameter label="span" index="1">
+            <input-range width="64"></input-range>
+        </com-parameter>
+    </div>
+    <div class="row stack-row">
+        <com-parameter label="phase" index="2">
+            <input-range width="64"></input-range>
+        </com-parameter>
+        <com-parameter label="offset" index="3">
+            <input-range width="64"></input-range>
+        </com-parameter>
+    </div>
+</div>

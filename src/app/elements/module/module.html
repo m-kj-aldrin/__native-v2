@@ -1,0 +1,59 @@
+<style>
+    :host {
+        width: 256px;
+        border: var(--border-0);
+        box-shadow: var(--shadow-0);
+        background-color: var(--color-white);
+    }
+
+    :host([minimized]) #operator {
+        /* display: none; */
+    }
+
+    header {
+        --gap: var(--space-1);
+        background-color: var(--color-gray-light);
+        padding: 2px;
+    }
+
+    [draggable="true"] {
+        cursor: move;
+    }
+
+    .controlls {
+        margin-inline-start: auto;
+    }
+
+    #remove {
+        --color: var(--color-error);
+        /* color: var(--color-error);
+        border-color: var(--color-error); */
+    }
+
+    #operator {
+        padding: 16px 4px;
+        overflow: hidden;
+    }
+
+    #index {
+        display: none;
+    }
+</style>
+
+<header class="stack-row" part="header">
+    <div id="type"></div>
+    <div id="index"></div>
+
+    <div class="controlls">
+        <button id="remove" onclick="get_host(event.target).remove()">
+            remove
+        </button>
+        <button id="minimize" onclick="get_host(event.target).minimize()">
+            min
+        </button>
+    </div>
+</header>
+
+<div id="operator">
+    <slot></slot>
+</div>

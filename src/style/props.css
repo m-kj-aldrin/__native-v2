@@ -1,0 +1,31 @@
+:root {
+    --space-0: 2px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+}
+
+:root {
+    --hue: hsl(234, 67%, 49%);
+
+    --color-error: hsl(9, 74%, 52%);
+
+    --color-primary: color-mix(in srgb, var(--hue) 100%, white);
+    --color-primary-light: color-mix(
+        in srgb,
+        var(--color-primary) 30%,
+        var(--color-gray-light)
+    );
+
+    --color-black: color-mix(in srgb, var(--hue) 15%, #222);
+    --color-white: color-mix(in srgb, var(--hue) 1%, hsl(0, 0%, 99%));
+
+    --color-gray: color-mix(in srgb, var(--color-black) 30%, white);
+    --color-gray-light: color-mix(in srgb, var(--color-gray) 40%, white);
+}
+
+:root {
+    --border-0: 1px var(--color-gray-light) solid;
+    --shadow-0: 0 0 8px 0px
+        color-mix(in srgb, var(--color-gray-light) 40%, white);
+}
