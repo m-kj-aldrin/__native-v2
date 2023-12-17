@@ -31,3 +31,22 @@ body {
 [data-dragged="true"]::part(header) {
     background-color: var(--color-primary-light);
 }
+
+html[data-module-picking="true"] com-module:not([data-picker-destination]) {
+    border-color: var(--color-primary-light);
+}
+html[data-module-picking="true"]
+    com-module:not([data-picker-destination])::part(header) {
+    background-color: var(--color-primary-light);
+}
+
+html[data-module-picking="true"]
+    com-module:not([data-picker-destination]):hover {
+    border-color: var(--color-primary);
+    cursor: pointer;
+}
+html[data-module-picking="true"]
+    com-module:not([data-picker-destination]):hover::part(header) {
+    background-color: var(--color-primary);
+    cursor: pointer;
+}

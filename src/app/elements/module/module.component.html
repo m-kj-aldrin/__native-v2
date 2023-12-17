@@ -26,8 +26,6 @@
 
     #remove {
         --color: var(--color-error);
-        /* color: var(--color-error);
-        border-color: var(--color-error); */
     }
 
     #operator {
@@ -38,15 +36,23 @@
     #index {
         display: none;
     }
+
+    /* #param-pointers {
+        font-size: 0.85em;
+    }
+    #param-pointers:not(:empty)::before {
+        content: "ptr:";
+    } */
 </style>
 
 <header class="stack-row" part="header">
     <div id="type"></div>
     <div id="index"></div>
+    <!-- <div id="param-pointers" class="stack-row"></div> -->
 
-    <div class="controlls">
+    <div class="controlls stack-row">
         <button id="remove" onclick="get_host(event.target).remove()">
-            remove
+            del
         </button>
         <button id="minimize" onclick="get_host(event.target).minimize()">
             min

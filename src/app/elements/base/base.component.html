@@ -1,0 +1,61 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    button {
+        line-height: inherit;
+        cursor: pointer;
+        padding-inline: 0.4ch;
+        padding-block: 0.4ch;
+
+        --color: var(--color-black);
+
+        color: var(--color);
+        background-color: transparent;
+        border-color: var(--color);
+    }
+
+    button:active {
+        background-color: var(--color);
+        color: var(--color-white);
+    }
+
+    :where(button, input) {
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        border: 1px currentColor solid;
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    :where(button, input):focus {
+        outline: 1px var(--color-primary) solid;
+        outline-offset: 1px;
+    }
+    :where([class*="stack"]) {
+        --gap: var(--space-0);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+    }
+
+    :where([class*="stack-row"]) {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .border {
+        border: 1px var(--color, currentColor) solid;
+    }
+
+    hr {
+        width: 100%;
+        border: none;
+        color: var(--color-gray-light);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+</style>

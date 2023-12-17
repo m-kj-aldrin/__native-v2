@@ -4,7 +4,7 @@ import flip from "../../dom/flip.js";
 import { base_element } from "../base/base.js";
 import { com_module } from "../module/module.js";
 import { com_network } from "../network/network.js";
-import template from "./chain.html?raw";
+import template from "./chain.component.html?inline";
 
 export class com_chain extends base_element {
     #_index = -1;
@@ -80,13 +80,41 @@ export class com_chain extends base_element {
         }
     }
 
+    signal(modules = false) {
+        let repr_str = `c -n `;
+        let ps = this.shadowRoot.querySelectorAll("com-periphial");
+        let inputs_repr = `cv${ps[0].value.pid}:${ps[0].value.ch},gt${ps[1].value.pid}:${ps[1].value.ch}`;
+
+        repr_str += inputs_repr + ">";
+
+        let module_repr = "";
+        if (modules) {
+            module_repr = [...this.modules]
+                .map((m) => {
+                    return `${m.type}${m.parameters
+                        .map((p) => p.value)
+                        .join(":")}`;
+                })
+                .join(",");
+        }
+
+        repr_str += module_repr;
+
+        log_cli(repr_str);
+    }
+
     connectedCallback() {
         let parent = this.closest("com-network");
         if (!parent) return;
 
-        let repr_str = `c -n ${this.#_index}`;
-
-        log_cli(repr_str);
+        setTimeout(() => {
+            // let repr_str = `c -n `;
+            // let ps = this.shadowRoot.querySelectorAll("com-periphial");
+            // let inputs_repr = `cv${ps[0].value.pid}:${ps[0].value.ch},gt${ps[1].value.pid}:${ps[1].value.ch}`;
+            // repr_str += inputs_repr + ">";
+            // log_cli(repr_str);
+            this.signal();
+        }, 0);
 
         this.#_parent = parent;
 

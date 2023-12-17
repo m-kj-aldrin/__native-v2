@@ -1,0 +1,35 @@
+<style>
+    :host {
+        display: flex;
+        gap: var(--space-0);
+        align-items: center;
+    }
+</style>
+
+<div id="label">
+    <slot></slot>
+</div>
+<input-select id="pid">
+    <input-opt norm-value="0">adc</input-opt>
+    <input-opt norm-value="1">dac</input-opt>
+    <input-opt norm-value="2">midi0</input-opt>
+    <input-opt norm-value="3">midi1</input-opt>
+</input-select>
+<input-select id="ch">
+    <input-opt norm-value="1">1</input-opt>
+    <input-opt norm-value="2">2</input-opt>
+    <input-opt norm-value="3">3</input-opt>
+    <input-opt norm-value="4">4</input-opt>
+    <input-opt norm-value="5">5</input-opt>
+    <input-opt norm-value="6">6</input-opt>
+    <input-opt norm-value="7">7</input-opt>
+    <input-opt norm-value="8">8</input-opt>
+    <input-opt norm-value="9">9</input-opt>
+    <input-opt norm-value="10">10</input-opt>
+    <input-opt norm-value="11">11</input-opt>
+    <input-opt norm-value="12">12</input-opt>
+    <input-opt norm-value="13">13</input-opt>
+    <input-opt norm-value="14">14</input-opt>
+    <input-opt norm-value="15">15</input-opt>
+    <input-opt norm-value="16">16</input-opt>
+</input-select>

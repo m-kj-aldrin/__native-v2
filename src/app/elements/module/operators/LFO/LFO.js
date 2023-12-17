@@ -1,7 +1,7 @@
 import { base_element } from "../../../base/base.js";
-import template from "./PRO.html?raw";
+import template from "./LFO.component.html?inline";
 
-export class op_PRO extends base_element {
+export class op_LFO extends base_element {
     constructor() {
         super();
 

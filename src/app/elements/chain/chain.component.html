@@ -13,6 +13,10 @@
         background-color: var(--color-gray-light);
         padding: var(--space-1);
     }
+    #inputs {
+        justify-content: center;
+        --gap: var(--space-3);
+    }
 
     #modules {
         --gap: var(--space-1);
@@ -25,6 +29,11 @@
 
 <header>
     <div id="index"></div>
+    <div id="inputs" class="stack-row">
+        <!-- <slot name="input"></slot> -->
+        <com-periphial id="cv">cvin</com-periphial>
+        <com-periphial id="gate">gtin</com-periphial>
+    </div>
 </header>
 
 <div id="modules" class="stack">

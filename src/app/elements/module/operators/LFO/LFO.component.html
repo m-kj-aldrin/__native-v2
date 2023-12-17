@@ -1,0 +1,63 @@
+<style>
+    input {
+        max-width: 5ch;
+    }
+
+    .row {
+        justify-content: center;
+    }
+
+    #parameters {
+        --gap: 4px;
+    }
+
+    #buttons {
+        display: flex;
+        gap: var(--space-1);
+        /* display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-1); */
+    }
+</style>
+
+<div id="parameters" class="stack">
+    <div class="row" id="buttons">
+        <com-parameter index="4">
+            <input-select>
+                <input-opt norm-value="0">ramp up</input-opt>
+                <input-opt norm-value="1">ramp down</input-opt>
+                <input-opt norm-value="2">square</input-opt>
+                <input-opt norm-value="3">sine</input-opt>
+            </input-select>
+        </com-parameter>
+        <com-parameter index="5">
+            <input-select>
+                <input-opt norm-value="0">free</input-opt>
+                <input-opt norm-value="1">sync</input-opt>
+            </input-select>
+        </com-parameter>
+        <com-parameter index="6">
+            <input-button>reset</input-button>
+        </com-parameter>
+        <com-parameter index="7">
+            <input-button toggle="false">hold</input-button>
+        </com-parameter>
+    </div>
+    <hr />
+    <div class="row stack-row">
+        <com-parameter label="frequency" index="0" norm-value="0.75">
+            <input-range width="64" min-max="0 2048"></input-range>
+        </com-parameter>
+        <com-parameter label="span" index="1">
+            <input-range width="64"></input-range>
+        </com-parameter>
+    </div>
+    <div class="row stack-row">
+        <com-parameter label="phase" index="2">
+            <input-range width="64"></input-range>
+        </com-parameter>
+        <com-parameter label="offset" index="3">
+            <input-range width="64"></input-range>
+        </com-parameter>
+    </div>
+</div>

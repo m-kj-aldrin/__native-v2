@@ -6,14 +6,14 @@
 }
 
 :root {
-    --hue: hsl(234, 67%, 49%);
+    --hue: hsl(85, 67%, 49%);
 
-    --color-error: hsl(9, 74%, 52%);
+    --color-error: color-mix(in srgb, hsl(9, 74%, 52%) 80%, var(--color-gray));
 
     --color-primary: color-mix(in srgb, var(--hue) 100%, white);
     --color-primary-light: color-mix(
         in srgb,
-        var(--color-primary) 30%,
+        var(--color-primary) 20%,
         var(--color-gray-light)
     );
 
@@ -27,5 +27,5 @@
 :root {
     --border-0: 1px var(--color-gray-light) solid;
     --shadow-0: 0 0 8px 0px
-        color-mix(in srgb, var(--color-gray-light) 40%, white);
+        color-mix(in srgb, var(--color-primary-light) 5%, var(--color-white));
 }

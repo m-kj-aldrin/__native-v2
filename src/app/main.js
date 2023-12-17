@@ -11,6 +11,7 @@ document.body.appendChild(network);
 let c0 = network.add_chain();
 c0.insert_module("BCH");
 c0.insert_module("LFO");
+c0.insert_module("LFO");
 c0.insert_module("PRO");
 
 let c1 = network.add_chain();

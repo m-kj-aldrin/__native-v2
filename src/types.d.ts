@@ -3,6 +3,7 @@ import { com_chain } from "./app/elements/chain/chain.js";
 import { com_module } from "./app/elements/module/module.js";
 import { com_parameter } from "./app/elements/module/parameter/parameter.js";
 import { com_network } from "./app/elements/network/network.js";
+import { com_periphial } from "./app/elements/periphial/periphial.js";
 
 declare global {
     interface Window {
@@ -14,9 +15,8 @@ declare global {
         "com-chain": com_chain;
         "com-module": com_module;
         "com-parameter": com_parameter;
+        "com-periphial": com_periphial;
         // "com-out": COMOut;
-        // "com-parameter": COMParameter;
-        // "com-periphial": COMPeriphial;
     }
 
     interface HTMLElementEventMap {

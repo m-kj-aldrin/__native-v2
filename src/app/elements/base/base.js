@@ -1,7 +1,7 @@
-import u from "../../../style/utils.css?raw";
-import r from "../../../style/reset.css?raw";
+// import u from "../../../style/utils.css?raw";
+// import r from "../../../style/reset.css?raw";
 
-import template from "./base.html?raw";
+import template from "./base.component.html?inline";
 
 export class base_element extends HTMLElement {
     constructor() {
@@ -9,13 +9,14 @@ export class base_element extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
 
-        this.shadowRoot.innerHTML = `
-        <style>
-        ${u}
-        ${r}
-        </style>
-        ${template}
-        `;
+        this.shadowRoot.innerHTML = template;
+        // this.shadowRoot.innerHTML = `
+        // <style>
+        // ${u}
+        // ${r}
+        // </style>
+        // ${template}
+        // `;
     }
 
     // //declared as method on a Custom Element:

@@ -19,6 +19,7 @@ button:active {
 }
 
 :where(button, input) {
+    line-height: inherit;
     font-family: inherit;
     font-size: inherit;
     color: inherit;

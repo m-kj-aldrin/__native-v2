@@ -2,7 +2,8 @@ import { log_cli } from "../../com/index.js";
 import { draggable } from "../../dom/drag.js";
 import { base_element } from "../base/base.js";
 import { com_chain } from "../chain/chain.js";
-import template from "./module.html?raw";
+import template from "./module.component.html?inline";
+import { com_parameter } from "./parameter/parameter.js";
 
 export class com_module extends base_element {
     #_type = "";
@@ -14,6 +15,9 @@ export class com_module extends base_element {
 
     /**@type {HTMLElement} */
     #_operator;
+
+    /**@type {Set<com_parameter>} */
+    #_attached_params = new Set();
 
     constructor() {
         super();
@@ -41,6 +45,14 @@ export class com_module extends base_element {
         this.#_operator = op;
 
         this.appendChild(op);
+
+        // let test_inp = document.createElement("input");
+        // test_inp.value = 33;
+        // this.appendChild(test_inp);
+    }
+
+    get type() {
+        return this.#_type;
     }
 
     /**@param {number} v */
@@ -58,7 +70,28 @@ export class com_module extends base_element {
     }
 
     remove() {
+        if (document.documentElement.hasAttribute("data-module-picking"))
+            return;
         this.#_parent.remove_module(this);
+    }
+
+    /**@param {com_parameter} p */
+    attach_param(p) {
+        this.#_attached_params.add(p);
+        // this.shadowRoot.getElementById("param-pointers").innerHTML = `
+        // ${[...this.#_attached_params.values()]
+        //     .map((p) => {
+        //         let c = p.parent.parent.index;
+        //         let m = p.parent.index;
+        //         return `<div>[${c}:${m}]</div>`;
+        //     })
+        //     .join("\n")}
+        // `;
+    }
+
+    /**@param {com_parameter} p */
+    dettach_param(p) {
+        this.#_attached_params.delete(p);
     }
 
     minimize() {
@@ -93,9 +126,11 @@ export class com_module extends base_element {
     }
 
     get parameters() {
-        return (
-            this.#_operator?.shadowRoot?.querySelectorAll("com-parameter") ?? []
-        );
+        let ps = this.#_operator?.shadowRoot?.querySelectorAll("com-parameter");
+        if (ps?.length) {
+            return [...ps].sort((p_a, p_b) => p_a.index - p_b.index);
+        }
+        return [];
     }
 
     connectedCallback() {
@@ -108,7 +143,22 @@ export class com_module extends base_element {
         //parameters intial value is set in the markup...
         //values will be parsed after its connected which happends after
         //the module is connected... hacky :*(
-        setTimeout(() => {
+
+        if (!this.#_init) {
+            setTimeout(() => {
+                let params_repr = [...this.parameters]
+                    .map((p) => p.value)
+                    .join(":");
+
+                let repr_str = `m -c ${parent.index} -i ${this.index}:${
+                    this.#_type
+                }${params_repr}`;
+
+                log_cli(repr_str);
+            }, 0);
+            draggable(this, this.shadowRoot.querySelector("header"));
+            this.#_init = true;
+        } else {
             let params_repr = [...this.parameters]
                 .map((p) => p.value)
                 .join(":");
@@ -118,11 +168,8 @@ export class com_module extends base_element {
             }${params_repr}`;
 
             log_cli(repr_str);
-        }, 0);
 
-        if (!this.#_init) {
-            draggable(this, this.shadowRoot.querySelector("header"));
-            this.#_init = true;
+            this.#_attached_params.forEach((p) => p.signal());
         }
     }
     disconnectedCallback() {

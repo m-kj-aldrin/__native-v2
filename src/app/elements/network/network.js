@@ -1,6 +1,6 @@
 import { base_element } from "../base/base.js";
 import { com_chain } from "../chain/chain.js";
-import template from "./network.html?raw";
+import template from "./network.component.html?inline";
 
 export class com_network extends base_element {
     constructor() {
