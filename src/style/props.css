@@ -26,6 +26,6 @@
 
 :root {
     --border-0: 1px var(--color-gray-light) solid;
-    --shadow-0: 0 0 8px 0px
-        color-mix(in srgb, var(--color-primary-light) 5%, var(--color-white));
+    --shadow-0: 0 0 8px 4px
+        color-mix(in srgb, var(--color-primary) 5%, var(--color-white));
 }

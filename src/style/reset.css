@@ -11,6 +11,7 @@ button {
     color: var(--color);
     background-color: transparent;
     border-color: var(--color);
+    border-radius: 4px;
 }
 
 button:active {

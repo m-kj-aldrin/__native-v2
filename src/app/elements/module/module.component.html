@@ -4,16 +4,13 @@
         border: var(--border-0);
         box-shadow: var(--shadow-0);
         background-color: var(--color-white);
-    }
-
-    :host([minimized]) #operator {
-        /* display: none; */
+        border-radius: 2px;
     }
 
     header {
         --gap: var(--space-1);
         background-color: var(--color-gray-light);
-        padding: 2px;
+        padding: var(--space-1);
     }
 
     [draggable="true"] {
@@ -29,20 +26,13 @@
     }
 
     #operator {
-        padding: 16px 4px;
+        padding: var(--space-3) var(--space-1);
         overflow: hidden;
     }
 
     #index {
         display: none;
     }
-
-    /* #param-pointers {
-        font-size: 0.85em;
-    }
-    #param-pointers:not(:empty)::before {
-        content: "ptr:";
-    } */
 </style>
 
 <header class="stack-row" part="header">
