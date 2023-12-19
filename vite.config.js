@@ -1,11 +1,3 @@
-// /**@type {import('vite').UserConfig} */
-// export default {
-//     root: "src",
-//     build: {
-//         outDir: "../dist",
-//     },
-// };
-
 import { minify } from "html-minifier";
 
 /**@type {import('vite').UserConfig} */

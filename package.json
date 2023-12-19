@@ -12,6 +12,7 @@
         "vite": "^5.0.8"
     },
     "dependencies": {
+        "@rollup/plugin-alias": "^5.1.0",
         "rollup-plugin-html": "^0.2.1"
     }
 }

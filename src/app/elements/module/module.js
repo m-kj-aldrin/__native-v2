@@ -107,7 +107,7 @@ export class com_module extends base_element {
                     [
                         { height: `${box.height}px` },
                         { opacity: 0 },
-                        { height: "0px", paddingBlock: "0px", opacity: 0 },
+                        { height: "0px", "padding": "0px", opacity: 0 },
                     ],
                     {
                         duration: 300,
